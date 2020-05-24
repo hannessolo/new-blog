@@ -1,7 +1,41 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path')
 
-// You can delete this file if you're not using it
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type == "ContentfulPost") {
+    console.log(node.contentful_id)
+    const slug = `/articles/${node.contentful_id}`
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug
+    })
+  }
+}
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const result = await graphql(`
+  query {
+    allContentfulPost {
+      nodes {
+        fields {
+          slug
+        }
+      }
+    }
+  }
+  `)
+
+  result.data.allContentfulPost.nodes.forEach((node) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/post.jsx`),
+      context: {
+        slug: node.fields.slug
+      }
+    })
+  })
+
+}
