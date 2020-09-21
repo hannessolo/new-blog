@@ -1,17 +1,20 @@
 import React from 'react'
+import style from './layout.module.css'
 
 export default ({ children }) => {
-  return (<div>
-    <header>
-      <h1>Blog</h1>
-    </header>
+  return (<div className={style.base}>
+      <div className={style.container}>
+        <header>
+        <h1 className={style.mainTitle}>Blog</h1>
+      </header>
 
-    <section>
-      { children }
-    </section>
+      <section>
+        { children }
+      </section>
 
-    <footer>
-      By Hannes Hertach
-    </footer>
+      <footer className={style.footer}>
+        By Hannes Hertach
+      </footer>
+      </div>
   </div>)
 }

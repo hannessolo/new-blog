@@ -1,0 +1,11 @@
+.subhead {
+  font-size: 16pt;
+  color: rgba(60.0, 60.0, 67.0, 0.6);;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(60.0, 60.0, 67.0, 0.6);;
+  width: 100%;
+}
+
+.articleLink {
+  color: #067BC2;
+}
