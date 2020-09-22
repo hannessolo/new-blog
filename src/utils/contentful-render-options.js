@@ -1,6 +1,8 @@
 import React from 'react'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { INLINES } from '@contentful/rich-text-types'
+import Img from 'gatsby-image'
+import { getFluidGatsbyImage } from './getFluidGatsbyImage'
 
 import postStyle from '../templates/post.module.css'
 
@@ -23,6 +25,15 @@ console.log(node)
   }
 }
 
+function handleEmbeddedAsset(node) {
+  const { file, title } = node.data.target.fields
+  const image = {
+    file: file['en-US'],
+  }
+  const fluidProps = getFluidGatsbyImage(image, {})
+  return <Img fluid={fluidProps} alt={title['en-US']} />
+}
+
 const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node) => {
@@ -32,7 +43,7 @@ const options = {
       return handleEmbeddedEntry(node)
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      return handleEmbeddedEntry(node)
+      return handleEmbeddedAsset(node)
     }, [BLOCKS.PARAGRAPH]: (node) => {
       return <p className={postStyle.pa}>{node.content[0].value}</p>
     }, [BLOCKS.HEADING_1]: (node) => {
