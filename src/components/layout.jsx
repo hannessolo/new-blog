@@ -1,11 +1,14 @@
 import React from 'react'
 import style from './layout.module.css'
+import { Link } from 'gatsby'
 
 export default ({ children }) => {
   return (<div className={style.base}>
       <div className={style.container}>
         <header>
-        <h1 className={style.mainTitle}>Blog</h1>
+          <Link to="/" className={style.mainTitle}>
+            <h1>Blog</h1>
+          </Link>
       </header>
 
       <section>

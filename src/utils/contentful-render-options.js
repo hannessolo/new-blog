@@ -4,14 +4,36 @@ import { INLINES } from '@contentful/rich-text-types'
 
 import postStyle from '../templates/post.module.css'
 
+function handleEmbeddedEntry(node) {
+console.log(node)
+  try {
+    switch (node.data.target.sys.contentType.sys.id) {
+      case "codeSnippet":
+        return (
+          <pre>
+            <code className={`language-${node.data.target.fields.language["en-US"]}`}>
+              {node.data.target.fields.code["en-US"]}
+            </code>
+          </pre>
+        )
+      default: return (<div>Unknwon content type</div>)
+    }
+  } catch (err) {
+    return <div>{err.message}</div>
+  }
+}
+
 const options = {
   renderNode: {
-    // [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-
-    // }, [BLOCKS.EMBEDDED_ASSET]: (node) => {
-
-    // }
-    [BLOCKS.PARAGRAPH]: (node) => {
+    [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+      return handleEmbeddedEntry(node)
+    },
+    [INLINES.EMBEDDED_ENTRY]: (node) => {
+      return handleEmbeddedEntry(node)
+    },
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      return handleEmbeddedEntry(node)
+    }, [BLOCKS.PARAGRAPH]: (node) => {
       return <p className={postStyle.pa}>{node.content[0].value}</p>
     }, [BLOCKS.HEADING_1]: (node) => {
       return <h1 className={postStyle.he1}>{node.content[0].value}</h1>

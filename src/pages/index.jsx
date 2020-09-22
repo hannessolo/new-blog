@@ -13,7 +13,7 @@ export default ({ data }) => {
       <h2 className={style.subhead}>Articles</h2>
       <section id="articles">
         { data.allContentfulPost.nodes.map(node => (
-            <article>
+            <article key={node.title}>
               <Link className={style.articleLink} to={node.fields.slug}>
                 <h2>{node.title}</h2>
               </Link>

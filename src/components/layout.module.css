@@ -10,11 +10,13 @@
   min-height: 100vh;
   position: relative;
   width: 90%;
-  max-width: 800px;
+  max-width: 900px;
 }
 
 .mainTitle {
-  font-size: 40pt;
+  font-size: 25pt;
+  color: black;
+  text-decoration: underline #CF5F3A;
 }
 
 .footer {
