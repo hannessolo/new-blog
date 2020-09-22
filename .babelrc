@@ -2,7 +2,7 @@
   "presets": ["babel-preset-gatsby"],
   "plugins": [
     ["prismjs", {
-      "languages": ["javascript", "css", "markup", "typescript", "java", "c", "swift", "kotlin", "bash"],
+      "languages": ["javascript", "css", "markup", "typescript", "java", "c", "swift", "kotlin", "bash", "python"],
       "plugins": ["show-language"],
       "theme": "okaidia",
       "css": true
