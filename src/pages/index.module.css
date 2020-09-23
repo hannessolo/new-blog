@@ -9,3 +9,12 @@
 .articleLink {
   color: #067BC2;
 }
+
+.yearMark {
+  color: #CF5F3A;
+}
+
+.article {
+  display: flex;
+  justify-content: space-between;
+}

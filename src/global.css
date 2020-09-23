@@ -1,3 +1,28 @@
 html, body {
   margin: 0;
 }
+
+code {
+  font-family: "Consolas", "Ubuntu Mono", "Menlo", Courier, monospace;
+  font-weight: 400;
+  background-color: cornsilk;
+  border-radius: 2px;
+  padding: 1px;
+}
+
+p {
+  line-height: 1.75em;
+  margin-bottom: 1em;
+  font-size: 14pt;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: #CF5F3A;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}

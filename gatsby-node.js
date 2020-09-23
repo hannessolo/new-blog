@@ -4,7 +4,6 @@ exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type == "ContentfulPost") {
-    console.log(node.contentful_id)
     const slug = `/articles/${node.contentful_id}`
     createNodeField({
       node,

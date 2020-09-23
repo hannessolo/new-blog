@@ -44,8 +44,6 @@ const options = {
     },
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       return handleEmbeddedAsset(node)
-    }, [BLOCKS.PARAGRAPH]: (node) => {
-      return <p className={postStyle.pa}>{node.content[0].value}</p>
     }, [BLOCKS.HEADING_1]: (node) => {
       return <h1 className={postStyle.he1}>{node.content[0].value}</h1>
     }, [BLOCKS.HEADING_2]: (node) => {
