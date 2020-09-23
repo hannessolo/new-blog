@@ -9,15 +9,15 @@ export default ({ children }) => {
           <Link to="/" className={style.mainTitle}>
             <h1>Blog</h1>
           </Link>
-      </header>
+        </header>
 
-      <section>
-        { children }
-      </section>
+        <section>
+          { children }
+        </section>
 
-      <footer className={style.footer}>
-        By Hannes Hertach
-      </footer>
+        <footer className={style.footer}>
+          By Hannes Hertach
+        </footer>
       </div>
   </div>)
 }
