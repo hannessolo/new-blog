@@ -18,3 +18,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 800px) {
+  .article {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
